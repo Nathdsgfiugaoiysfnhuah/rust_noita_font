@@ -42,18 +42,13 @@ fn main() {
                 new.push(map(e, clip));
             }
         }
-        let ymin = metrics.ymin;
-        let mh = metrics.height;
-        println!("{c} {height} {ymin} {mh}");
         height = max(height, metrics.height);
         high = max(high, metrics.ymin + metrics.height as i32);
         low = min(low, metrics.ymin);
         width += metrics.width;
         pictures.push((metrics, new));
     }
-    println!("{high}");
     high -= height as i32;
-    println!("{high}");
     low *= -1;
     width += pictures.len() + 1;
     let mut buf: Vec<u8> = Vec::new();
